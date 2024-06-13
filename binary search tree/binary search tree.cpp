@@ -27,31 +27,44 @@ public:
 		ROOT = nullptr; // initializing ROOT to null
 	}
 
-	void insert(string element) // insert a node in the binary search tree
+	void insert(string element)
 	{
-		Node* newNode = new Node(element, nullptr, nullptr);//alocate memory for the new node
-		newNode->info = element; //assign value to the data field of the new data
-		newNode->leftchild = nullptr;// make the left child of the data new node point null
-		newNode->rightchild = nullptr;//make the right child of the data new node point null
+		Node* newNode = new Node(element, nullptr, nullptr);
+		newNode->info = element;
+		newNode->leftchild = nullptr;
+		newNode->rightchild = nullptr;
 
 		Node* parent = nullptr;
 		Node* currentNode = nullptr;
-		search(element, parent, currentNode); // locate the node which be the parent of the node to be inserted
+		search(element, parent, currentNode);
 
-		if (parent == nullptr) //if the parent is NULL (tree is empty
+		if (parent == nullptr)
 		{
-			ROOT = newNode; //mark the new node as ROOT
-			return; //exit
+			ROOT = newNode;
+			return;
 		}
 
-		if (element < parent->info) //if the value in the data field pf the new node is less than that of the parent
+		if (element < parent->info)
 		{
-			parent->leftchild = newNode; // make the left child of parent point to the new node
+			parent->leftchild = newNode;
 		}
-		else if (element > parent->info) // if the value in the data field the new data is greater than that of the parent
+		else if (element > parent->info)
 		{
-			parent->rightchild = newNode; // make the right child of the parent point to the new node
+			parent->rightchild = newNode;
 		}
+
+	}
+
+	void search(string element, Node*& parent, Node*& currentNode)
+	{
+		currentNode = ROOT;
+		parent = NULL;
+		while ((currentNode != NULL) && currentNode->info != element)
+		{
+			parent = currentNode;
+
+
+
 	}
 };
 
