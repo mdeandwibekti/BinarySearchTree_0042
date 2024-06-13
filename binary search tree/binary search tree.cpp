@@ -9,7 +9,6 @@ public:
 	Node* leftchild;
 	Node* rightchild;
 
-	// constructor for the node class
 	Node(string i, Node* l, Node* r)
 	{
 		info = i;
@@ -17,6 +16,7 @@ public:
 		rightchild = r;
 	}
 };
+
 class BinaryTree
 {
 public:
@@ -24,7 +24,7 @@ public:
 
 	BinaryTree()
 	{
-		ROOT = nullptr; // initializing ROOT to null
+		ROOT = nullptr;
 	}
 
 	void insert(string element)
@@ -54,7 +54,6 @@ public:
 		}
 
 	}
-
 	void search(string element, Node*& parent, Node*& currentNode)
 	{
 		currentNode = ROOT;
@@ -67,39 +66,50 @@ public:
 			else
 				currentNode = currentNode->rightchild;
 		}
-
-
-		void inorder(Node * ptr)
+	}
+	void inorder(Node* ptr)
+	{
+		if (ROOT == NULL)
 		{
-			if (ROOT == NULL)
-			{
-				cout << "Tree is empety" << endl;
-				return;
-			}
-			if (ptr != NULL)
-			{
-				inorder(ptr->leftchild);
-				cout << ptr->info << " ";
-				inorder(ptr->rightchild);
-			}
+			cout << "Tree is empety" << endl;
+			return;
 		}
-		void preorder(Node* ptr)
+		if (ptr != NULL)
 		{
-			if (ROOT == NULL)
-			{
-				cout << "Tree is empety" << endl;
-				return;
-			}
-			if (ptr != NULL)
-			{
-				cout << ptr->info << " ";
-				preorder(ptr->leftchild);
-				preorder(ptr->rightchild);
-			}
+			inorder(ptr->leftchild);
+			cout << ptr->info << " ";
+			inorder(ptr->rightchild);
 		}
-		
-
-
+	}
+	void preorder(Node* ptr)
+	{
+		if (ROOT == NULL)
+		{
+			cout << "Tree is empety" << endl;
+			return;
+		}
+		if (ptr != NULL)
+		{
+			cout << ptr->info << " ";
+			preorder(ptr->leftchild);
+			preorder(ptr->rightchild);
+		}
+	}
+	void postorder(Node* ptr)
+	{
+		if (ROOT == NULL)
+		{
+			cout << "Tree is empety" << endl;
+			return;
+		}
+		if (ptr != NULL)
+		{
+			postorder(ptr->leftchild);
+			postorder(ptr->rightchild);
+			cout << ptr->info << " ";
+		}
 	}
 };
+
+
 
