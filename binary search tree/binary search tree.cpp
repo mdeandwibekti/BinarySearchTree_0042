@@ -17,7 +17,28 @@ public:
 		rightchild = r;
 	}
 };
+class BinaryTree
+{
+public:
+	Node* ROOT;
 
+	BinaryTree()
+	{
+		ROOT = nullptr; // initializing ROOT to null
+	}
+
+	void insert(string element) // insert a node in the binary search tree
+	{
+		Node* newNode = new Node(element, nullptr, nullptr);//alocate memory for the new node
+		newNode->info = element; //assign value to the data field of the new data
+		newNode->leftchild = nullptr;// make the left child of the data new node point null
+		newNode->rightchild = nullptr;//make the right child of the data new node point null
+
+		Node* parent = nullptr;
+		Node* currentNode = nullptr;
+		search(element, parent, currentNode); // locate the node which be the parent of the node to be inserted
+
+		
 
 
 };
