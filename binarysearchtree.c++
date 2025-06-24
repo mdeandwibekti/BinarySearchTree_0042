@@ -40,6 +40,12 @@ class BinaryTree {
         Node *currentNode = nullptr;
         search(x, parent, currentNode);
 
-        
+        if (parent == nullptr) {
+            root = newNode; 
+
+            return;
+        }
+
+
     }
 };
