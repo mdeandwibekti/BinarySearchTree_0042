@@ -83,7 +83,16 @@ void inorder(Node* ptr)
     if (ptr != nullptr) {
         return;
     }
-    
+
+    // Melakukan traversal inorder pada subtree kiri
+    inorder(ptr->leftchild);
+
+    // Menampilkan nilai node saat ini
+    cout << ptr->info << " ";
+
+    // Melakukan traversal inorder pada subtree kanan
+    inorder(ptr->rightchild);
+
         
 }
 
