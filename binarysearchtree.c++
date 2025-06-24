@@ -16,11 +16,11 @@ public:
 
 class BinaryTree {
     public:
-    Node* root;
+    Node* ROOT;
 
     BinaryTree()
     {
-        root = nullptr;
+        ROOT = nullptr;
     }
 
     void insert()
@@ -57,6 +57,20 @@ class BinaryTree {
 
             return;
         }
-
     }
 };
+
+void search(int x, Node*& parent, Node*& currentNode)
+{
+    currentNode = ROOT;
+    parent = nullptr;
+    while ((currentNode != nullptr) && (currentNode->info != x)) {
+        parent = currentNode;
+        if (x < currentNode->info)
+            currentNode = currentNode->leftchild;
+        else
+            currentNode = currentNode->rightchild;  
+    }
+}
+
+    
