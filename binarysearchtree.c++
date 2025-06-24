@@ -41,7 +41,7 @@ class BinaryTree {
         search(x, parent, currentNode);
 
         if (parent == nullptr) {
-            root = newNode; 
+            ROOT = newNode; 
 
             return;
         }
@@ -67,66 +67,71 @@ void search(int x, Node*& parent, Node*& currentNode)
     while ((currentNode != nullptr) && (currentNode->info != x)) {
         parent = currentNode;
         if (x < currentNode->info)
-            currentNode = currentNode->leftchild;
+                currentNode = currentNode->leftchild;
         else
-            currentNode = currentNode->rightchild;  
+                currentNode = currentNode->rightchild;  
+    }
+    
+    void inorder(Node* ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty." << endl;
+            return;
+        }
+        if (ptr != nullptr) {
+            return;
+        }
+
+        // Melakukan traversal inorder pada subtree kiri
+        inorder(ptr->leftchild);
+        // Menampilkan nilai node saat ini
+        cout << ptr->info << " ";
+        // Melakukan traversal inorder pada subtree kanan
+        inorder(ptr->rightchild);
+    }
+
+    void preorder(Node* ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty." << endl;
+            return;
+        }
+        if (ptr != nullptr) {
+            return;
+        }
+
+        // Menampilkan nilai node saat ini
+        cout << ptr->info << " ";
+        // Melakukan traversal inorder pada subtree kiri
+        preorder(ptr->leftchild);
+        // Melakukan traversal inorder pada subtree kanan
+        preorder(ptr->rightchild);
+    }
+
+    void postorder(Node* ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty." << endl;
+            return;
+        }
+        if (ptr != nullptr) {
+            return;
+        } 
+        // Melakukan traversal inorder pada subtree kiri
+        postorder(ptr->leftchild);
+        // Melakukan traversal inorder pada subtree kanan
+        postorder(ptr->rightchild);
+        // Menampilkan nilai node saat ini
+        cout << ptr->info << " ";
+    }
+
+    bool isEmpty()
+    {
+        return ROOT == nullptr;
     }
 };
-
-void inorder(Node* ptr)
-{
-    if (isEmpty())
-    {
-        cout << "Tree is empty." << endl;
-        return;
-    }
-    if (ptr != nullptr) {
-        return;
-    }
-
-    // Melakukan traversal inorder pada subtree kiri
-    inorder(ptr->leftchild);
-    // Menampilkan nilai node saat ini
-    cout << ptr->info << " ";
-    // Melakukan traversal inorder pada subtree kanan
-    inorder(ptr->rightchild);
-}
-
-void preorder(Node* ptr)
-{
-    if (isEmpty())
-    {
-        cout << "Tree is empty." << endl;
-        return;
-    }
-    if (ptr != nullptr) {
-        return;
-    }
-
-    // Menampilkan nilai node saat ini
-    cout << ptr->info << " ";
-    // Melakukan traversal inorder pada subtree kiri
-    preorder(ptr->leftchild);
-    // Melakukan traversal inorder pada subtree kanan
-    preorder(ptr->rightchild);
-}
-
-void postorder(Node* ptr)
-{
-    if (isEmpty())
-    {
-        cout << "Tree is empty." << endl;
-        return;
-    }
-    if (ptr != nullptr) {
-        return;
-    } 
-    // Melakukan traversal inorder pada subtree kiri
-    postorder(ptr->leftchild);
-    // Melakukan traversal inorder pada subtree kanan
-    postorder(ptr->rightchild);
-     // Menampilkan nilai node saat ini
-    cout << ptr->info << " ";
-}
 
     
