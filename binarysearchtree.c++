@@ -28,5 +28,7 @@ class BinaryTree {
         int x;
         cout << "masukan nilai: ";
         cin >> x;
+
+        Node* newNode = new Node();
     }
 };
