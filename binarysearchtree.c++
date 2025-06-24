@@ -45,7 +45,12 @@ class BinaryTree {
 
             return;
         }
+        
+        if(x < parent->info) {
+            parent->leftchild = newNode;
 
+            return;
+        }
 
     }
 };
