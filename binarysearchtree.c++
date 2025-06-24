@@ -22,4 +22,11 @@ class BinaryTree {
     {
         root = nullptr;
     }
+
+    void insert()
+    {
+        int x;
+        cout << "masukan nilai: ";
+        cin >> x;
+    }
 };
