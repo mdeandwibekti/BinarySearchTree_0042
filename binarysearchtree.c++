@@ -94,7 +94,7 @@ void inorder(Node* ptr)
 
 void preorder(Node* ptr)
 {
-       if (isEmpty())
+    if (isEmpty())
     {
         cout << "Tree is empty." << endl;
         return;
@@ -111,5 +111,22 @@ void preorder(Node* ptr)
     preorder(ptr->rightchild);
 }
 
+void postorder(Node* ptr)
+{
+    if (isEmpty())
+    {
+        cout << "Tree is empty." << endl;
+        return;
+    }
+    if (ptr != nullptr) {
+        return;
+    } 
+    // Melakukan traversal inorder pada subtree kiri
+    postorder(ptr->leftchild);
+    // Melakukan traversal inorder pada subtree kanan
+    postorder(ptr->rightchild);
+     // Menampilkan nilai node saat ini
+    cout << ptr->info << " ";
+}
 
     
